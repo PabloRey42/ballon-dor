@@ -42,7 +42,13 @@ h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:24px
 .chap{border-top:1px solid var(--line);padding:16px 0}
 .chap summary{list-style:none;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:12px}
 .chap summary::-webkit-details-marker{display:none}
-.chap[open] .plus{transform:rotate(45deg)}
+.chap[open] .plus,.grp[open] .plus{transform:rotate(45deg)}
+.grp{border-top:1px solid var(--line)}
+.grp summary{list-style:none;display:flex;align-items:center;gap:8px;padding:12px 0;font-weight:700;cursor:pointer}
+.grp summary::-webkit-details-marker{display:none}
+.grp summary .plus{margin-left:auto;font-size:22px}
+.grp .chips{margin-top:0}
+.btn:disabled{opacity:.35}
 .plus{font-size:26px;color:var(--gold);transition:transform .2s}
 .tip{border-left:3px solid var(--gold);padding:10px 14px;margin:14px 0 6px;background:rgba(216,174,63,.08);border-radius:0 10px 10px 0;font-size:14px;line-height:1.5}
 .row{display:grid;grid-template-columns:62px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
@@ -237,7 +243,7 @@ const TABS=[
 ];
 const MODES=[["mix","Mélange"],["y2p","Année → joueur"],["p2y","Joueur → année"],["club","Club"],["nat","Nationalité"],["input","Saisie libre"],["order","Chronologie"]];
 
-let S={box:{},games:0,best:0},tab="cours",scope="all",mode="mix",dir="y",fc=null,qz=null,hide=false,q="",rz=false;
+let S={box:{},games:0,best:0},tab="cours",sel=[],weak=false,nq=10,og={},mode="mix",dir="y",fc=null,qz=null,hide=false,q="",rz=false;
 
 const $=id=>document.getElementById(id);
 const bx=y=>S.box[y]||0;
@@ -253,13 +259,22 @@ async function load(){try{const v=window.storage?(await window.storage.get("bdor
 async function save(){try{window.storage?await window.storage.set("bdor-v1",JSON.stringify(S),false):localStorage.setItem("bdor-v1",JSON.stringify(S))}catch(e){}}
 function mark(y,ok){S.box[y]=ok?Math.min(5,bx(y)+1):1}
 
-function pool(sc){
-if(Array.isArray(sc))return W.filter(w=>sc.includes(w.y));
-if(sc==="weak")return W.filter(w=>bx(w.y)<3);
-if(sc==="all")return W;
-return W.filter(w=>w.y>=CH[sc].a&&w.y<=CH[sc].b);
+const chW=i=>W.filter(w=>w.y>=CH[i].a&&w.y<=CH[i].b);
+const GR=[
+["Chapitres",CH.map((c,i)=>["c:"+i,c.a+"–"+String(c.b).slice(2)+", "+c.t])],
+["Décennies",uniq(W.map(w=>Math.floor(w.y/10)*10)).map(d=>["d:"+d,"Années "+(d<2000?String(d).slice(2):d)])],
+["Pays",counts("c").map(([k,v])=>["n:"+k,k+" ("+v+")"])],
+["Clubs",counts("cl").map(([k,v])=>["k:"+k,k+" ("+v+")"])]
+];
+const KEYS=GR.flatMap(g=>g[1].map(x=>x[0]));
+function tg(i){const k=KEYS[i];sel=sel.includes(k)?sel.filter(x=>x!==k):[...sel,k];render()}
+function inSel(w,k){const t=k[0],v=k.slice(2);return t==="c"?w.y>=CH[v].a&&w.y<=CH[v].b:t==="d"?Math.floor(w.y/10)*10==v:t==="n"?w.c===v:w.cl===v}
+function pool(ys){
+if(ys)return W.filter(w=>ys.includes(w.y));
+let p=sel.length?W.filter(w=>sel.some(k=>inSel(w,k))):W;
+return weak?p.filter(w=>bx(w.y)<3):p;
 }
-function pick(sc,n){let p=pool(sc);if(!p.length)p=W;return sh(p).sort((a,b)=>bx(a.y)-bx(b.y)).slice(0,n)}
+function pick(ys,n){let p=pool(ys);if(!p.length)p=W;return sh(p).sort((a,b)=>bx(a.y)-bx(b.y)).slice(0,n)}
 
 function go(t){tab=t;render();scrollTo(0,0)}
 function render(){
@@ -276,26 +291,29 @@ function gap(){return `<div class="row"><span class="yr">2020</span><div><b>Non 
 function rows(a,b,tap){let o="";for(let y=a;y<=b;y++){const w=W.find(x=>x.y===y);o+=w?row(w,tap):gap()}return o}
 
 function scopeChips(){
-const l=[["all","Tout"],["weak","À travailler"],...CH.map((c,i)=>[i,c.a+"–"+String(c.b).slice(2)])];
-return `<div class="lbl">Sur quelles années ?</div><div class="chips">${l.map(([v,t])=>`<button class="chip ${scope===v?"on":""}" onclick="scope=${typeof v==="number"?v:`'${v}'`};render()">${t}</button>`).join("")}</div>`;
+let n=0;
+return `<div class="lbl">Quels Ballons d'Or ? Combine autant de catégories que tu veux.</div>
+<div class="chips"><button class="chip ${sel.length?"":"on"}" onclick="sel=[];render()">Tout</button><button class="chip ${weak?"on":""}" onclick="weak=!weak;render()">Seulement à travailler</button></div>
+${GR.map(([t,l],g)=>{const c=l.filter(x=>sel.includes(x[0])).length;return `<details class="grp" ${og[g]?"open":""} ontoggle="og[${g}]=this.open"><summary>${t}${c?` <span class="ck">${c}</span>`:""}<span class="plus">+</span></summary><div class="chips">${l.map(([k,x])=>`<button class="chip ${sel.includes(k)?"on":""}" onclick="tg(${n++})">${x}</button>`).join("")}</div></details>`}).join("")}
+<p class="lbl" style="margin:16px 0 4px">${pool().length} titres dans ta sélection${pool().length?"":". Retire le filtre « à travailler » ou ajoute une catégorie."}</p>`;
 }
 
 function vCours(){
 return `<h2>Réviser</h2><p class="lead">69 titres découpés en 7 chapitres de dix ans. Lis un chapitre, puis lance les cartes ou le quiz dessus. Le ✓ doré marque une année maîtrisée (3 bonnes réponses d'affilée).</p>
 <details class="chap"><summary><div><h3>Les règles du jeu</h3><div class="lbl">Ce qui a changé depuis 1956</div></div><span class="plus">+</span></summary>
 ${RULES.map(([y,t])=>`<div class="row"><span class="yr">${y}</span><div style="font-size:14px;line-height:1.45">${t}</div></div>`).join("")}</details>
-${CH.map((c,i)=>{const ws=pool(i),m=ws.filter(w=>bx(w.y)>=3).length;return `<details class="chap"><summary><div><span class="yr" style="font-size:16px">${c.a} à ${c.b}</span><h3>${c.t}</h3><div class="lbl">${m}/${ws.length} maîtrisés</div></div><span class="plus">+</span></summary>
+${CH.map((c,i)=>{const ws=chW(i),m=ws.filter(w=>bx(w.y)>=3).length;return `<details class="chap"><summary><div><span class="yr" style="font-size:16px">${c.a} à ${c.b}</span><h3>${c.t}</h3><div class="lbl">${m}/${ws.length} maîtrisés</div></div><span class="plus">+</span></summary>
 <div class="tip"><b>Pour retenir.</b> ${c.tip}</div>${rows(c.a,c.b)}
 <button class="btn" onclick="startFc(${i})">Cartes sur ce chapitre</button><button class="btn alt" onclick="startQz(${i})">Quiz sur ce chapitre</button></details>`}).join("")}`;
 }
 
-function startFc(sc){if(sc!==undefined)scope=sc;fc={c:pick(scope,10),i:0,ok:0,flip:false};tab="cartes";render();scrollTo(0,0)}
+function startFc(ch){if(ch!==undefined){sel=["c:"+ch];weak=false}fc={c:pick(0,10),i:0,ok:0,flip:false};tab="cartes";render();scrollTo(0,0)}
 function flip(){fc.flip=!fc.flip;document.querySelector(".card").classList.toggle("flip",fc.flip);$("rt").style.visibility=fc.flip?"visible":"hidden"}
 function rate(k){mark(fc.c[fc.i].y,!!k);if(k)fc.ok++;fc.i++;fc.flip=false;save();render()}
 function vCartes(){
 if(!fc)return `<h2>Cartes</h2><p class="lead">Séries de 10 cartes. Retourne, sois honnête : ce que tu rates revient en priorité, ce que tu connais s'espace.</p>
 <div class="lbl">Sens</div><div class="chips">${[["y","Année → joueur"],["p","Joueur → année"]].map(([v,l])=>`<button class="chip ${dir===v?"on":""}" onclick="dir='${v}';render()">${l}</button>`).join("")}</div>
-${scopeChips()}<button class="btn" onclick="startFc()">Commencer la série</button>`;
+${scopeChips()}<button class="btn" ${pool().length?"":"disabled"} onclick="startFc()">Commencer la série</button>`;
 if(fc.i>=fc.c.length)return `<h2>Série terminée</h2><p class="lead">${fc.ok}/${fc.c.length} connues du premier coup.</p><button class="btn" onclick="startFc()">Nouvelle série</button><button class="btn alt" onclick="fc=null;render()">Changer les réglages</button>`;
 const w=fc.c[fc.i],ys=W.filter(x=>x.k===w.k).map(x=>x.y);
 const front=dir==="y"?`<span class="yr" style="font-size:120px;line-height:.9">${w.y}</span><div class="hint">Qui a gagné ?</div>`
@@ -318,14 +336,13 @@ const ys=W.filter(x=>x.k===w.k).map(x=>x.y),c=[];
 for(let d=-7;d<=7;d++){const y=w.y+d;if(y>=1956&&y<=2025&&y!==2020&&!ys.includes(y))c.push(y)}
 return {t,w,txt:`En quelle année ${w.n} (${w.cl}) remporte-t-il le Ballon d'Or${ys.length>1?`, pour l'un de ses ${ys.length} titres`:""} ?`,ok:w.y,o:opts(w.y,c).sort((a,b)=>a-b)};
 }
-const p=pool(scope),s=[w];
+const p=pool(),s=[w];
 for(const x of [...sh(p.length>=8?p:W),...sh(W)]){if(s.length===4)break;if(!s.some(z=>z.k===x.k))s.push(x)}
 return {t,w,txt:"Touche les lauréats du plus ancien au plus récent.",items:sh(s),pk:[]};
 }
 function startQz(sc){
-const s=sc!==undefined?sc:scope;
-if(!Array.isArray(s))scope=s;
-const c=pick(s,10),types=["y2p","p2y","club","nat","input"];
+if(typeof sc==="number"){sel=["c:"+sc];weak=false}
+const ys=Array.isArray(sc)?sc:0,c=pick(ys,ys?ys.length:nq),types=["y2p","p2y","club","nat","input"];
 qz={q:c.map(w=>mkQ(mode==="mix"?types[Math.floor(Math.random()*types.length)]:mode,w)),i:0,sc:0,st:0,best:0,err:[],done:false};
 tab="quiz";render();scrollTo(0,0);
 }
@@ -344,11 +361,12 @@ if(x.pk.length<4)return render();
 x.a=1;const ys=x.pk.map(k=>x.items[k].y);
 res(ys.every((y,k)=>!k||y>ys[k-1]));
 }
-function next(){qz.i++;if(qz.i>=qz.q.length){qz.done=true;S.games++;S.best=Math.max(S.best,qz.sc);save()}render();scrollTo(0,0)}
+function next(){qz.i++;if(qz.i>=qz.q.length){qz.done=true;S.games++;S.best=Math.max(S.best,Math.round(qz.sc/qz.q.length*100));save()}render();scrollTo(0,0)}
 function vQuiz(){
-if(!qz)return `<h2>Quiz</h2><p class="lead">10 questions par partie. Les années que tu maîtrises le moins passent en premier.</p>
+if(!qz)return `<h2>Quiz</h2><p class="lead">Les années que tu maîtrises le moins passent en premier.</p>
 <div class="lbl">Type de questions</div><div class="chips">${MODES.map(([v,l])=>`<button class="chip ${mode===v?"on":""}" onclick="mode='${v}';render()">${l}</button>`).join("")}</div>
-${scopeChips()}<button class="btn" onclick="startQz()">Lancer le quiz</button>`;
+<div class="lbl">Nombre de questions</div><div class="chips">${[[10,"10"],[20,"20"],[999,"Toute la sélection"]].map(([v,l])=>`<button class="chip ${nq===v?"on":""}" onclick="nq=${v};render()">${l}</button>`).join("")}</div>
+${scopeChips()}<button class="btn" ${pool().length?"":"disabled"} onclick="startQz()">Lancer le quiz</button>`;
 if(qz.done){
 const n=qz.q.length,r=qz.sc/n,ys=uniq(qz.err.filter(x=>x.t!=="order").map(x=>x.w.y));
 const msg=r>=.9?"Niveau Ballon d'Or":r>=.7?"Solide":r>=.5?"Ça rentre":"Relis le chapitre et retente";
@@ -389,9 +407,9 @@ function bars(l){const mx=l[0][1];return l.map(([k,v])=>`<div class="st"><span>$
 function reset(){if(!rz){rz=true;return render()}S={box:{},games:0,best:0};rz=false;save();render()}
 function vStats(){
 const m=W.filter(w=>bx(w.y)>=3).length,seen=W.filter(w=>bx(w.y)>0).length;
-const ch=CH.map((c,i)=>[`${c.a} à ${c.b}`,pool(i).filter(w=>bx(w.y)>=3).length,pool(i).length]);
+const ch=CH.map((c,i)=>[`${c.a} à ${c.b}`,chW(i).filter(w=>bx(w.y)>=3).length,chW(i).length]);
 return `<h2>Stats</h2><p class="lead">Ta progression, et les records à connaître par cœur.</p>
-<div class="me"><div><span class="yr">${m}</span><span class="lbl">années maîtrisées</span></div><div><span class="yr">${seen}</span><span class="lbl">années déjà vues</span></div><div><span class="yr">${S.games}</span><span class="lbl">quiz terminés</span></div><div><span class="yr">${S.best}/10</span><span class="lbl">meilleur score</span></div></div>
+<div class="me"><div><span class="yr">${m}</span><span class="lbl">années maîtrisées</span></div><div><span class="yr">${seen}</span><span class="lbl">années déjà vues</span></div><div><span class="yr">${S.games}</span><span class="lbl">quiz terminés</span></div><div><span class="yr">${S.best}%</span><span class="lbl">meilleur score</span></div></div>
 <h3 class="sec">Par chapitre</h3>${ch.map(([l,a,b])=>`<div class="st"><span>${l}</span><b class="yr" style="font-size:22px">${a}/${b}</b><div class="b"><i style="width:${a/b*100}%"></i></div></div>`).join("")}
 <h3 class="sec">Joueurs sacrés plusieurs fois</h3>${bars(counts("n").filter(e=>e[1]>1))}
 <h3 class="sec">Titres par nationalité</h3>${bars(counts("c"))}
