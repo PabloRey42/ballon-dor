@@ -58,7 +58,9 @@ h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:24px
 .row em{display:block;font-style:normal;font-size:13px;color:var(--goldp);margin-top:4px;line-height:1.4}
 .row.hid b,.row.hid small,.row.hid em{filter:blur(7px);user-select:none}
 .ck{color:var(--gold);font-weight:800}
-.card{perspective:1000px;height:380px;margin:12px 0}
+.card{perspective:1000px;height:450px;margin:12px 0}
+.ph{border-radius:50%;object-fit:cover;object-position:50% 20%;border:3px solid var(--gold);flex:none;background:var(--deep);margin-bottom:12px}
+.ini{display:grid;place-items:center;font-family:'Big Shoulders Display',sans-serif;font-weight:900;color:var(--gold)}
 .inner{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
 .card.flip .inner{transform:rotateY(180deg)}
 .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;background:var(--pitch);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px;text-align:center;overflow:auto}
@@ -213,6 +215,21 @@ const D=[
 [2024,"rodri","Manchester City","Champion d'Europe 2024 avec l'Espagne."],
 [2025,"dembele","Paris Saint-Germain","Première C1 du PSG. Sixième Français au palmarès."]
 ];
+const WK={matthews:"Stanley Matthews",distefano:"Alfredo Di Stéfano",kopa:"Raymond Kopa",suarez:"Luis Suárez Miramontes",sivori:"Omar Sívori",masopust:"Josef Masopust",yachine:"Lev Yashin",law:"Denis Law",eusebio:"Eusébio",charlton:"Bobby Charlton",albert:"Flórián Albert",best:"George Best",rivera:"Gianni Rivera",muller:"Gerd Müller",cruyff:"Johan Cruyff",beckenbauer:"Franz Beckenbauer",blokhine:"Oleh Blokhin",simonsen:"Allan Simonsen",keegan:"Kevin Keegan",rummenigge:"Karl-Heinz Rummenigge",rossi:"Paolo Rossi",platini:"Michel Platini",belanov:"Igor Belanov",gullit:"Ruud Gullit",vanbasten:"Marco van Basten",matthaus:"Lothar Matthäus",papin:"Jean-Pierre Papin",baggio:"Roberto Baggio",stoitchkov:"Hristo Stoichkov",weah:"George Weah",sammer:"Matthias Sammer",ronaldo:"Ronaldo (Brazilian footballer)",zidane:"Zinedine Zidane",rivaldo:"Rivaldo",figo:"Luís Figo",owen:"Michael Owen",nedved:"Pavel Nedvěd",shevchenko:"Andriy Shevchenko",ronaldinho:"Ronaldinho",cannavaro:"Fabio Cannavaro",kaka:"Kaká",cr7:"Cristiano Ronaldo",messi:"Lionel Messi",modric:"Luka Modrić",benzema:"Karim Benzema",rodri:"Rodri (footballer, born 1996)",dembele:"Ousmane Dembélé"};
+let IMG={};
+async function photos(){
+try{
+const ks=Object.keys(WK);
+const u="https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1&prop=pageimages&piprop=thumbnail&pithumbsize=500&pilimit=50&pilicense=free&titles="+encodeURIComponent(ks.map(k=>WK[k]).join("|"));
+const d=(await (await fetch(u)).json()).query,m={},t={};
+(d.normalized||[]).forEach(x=>m[x.from]=x.to);
+(d.redirects||[]).forEach(x=>m[x.from]=x.to);
+Object.values(d.pages).forEach(x=>{if(x.thumbnail)t[x.title]=x.thumbnail.source});
+ks.forEach(k=>{let n=WK[k];n=m[n]||n;n=m[n]||n;if(t[n])IMG[k]=t[n]});
+if(tab==="cartes"&&(!fc||!fc.flip))render();
+}catch(e){}
+}
+const face=(k,z)=>IMG[k]?`<img class="ph" src="${IMG[k]}" alt="" style="width:${z}px;height:${z}px">`:`<div class="ph ini" style="width:${z}px;height:${z}px;font-size:${Math.round(z/2.6)}px">${P[k][0].split(" ").map(x=>x[0]).join("").slice(0,2)}</div>`;
 const W=D.map(([y,k,cl,f])=>({y,k,cl,f,n:P[k][0],c:P[k][1],pos:P[k][2],a:P[k][3]}));
 const CH=[
 {a:1956,b:1965,t:"Les pionniers",tip:"Real Madrid en ouverture : Di Stéfano 57 et 59, Kopa au milieu en 58. Ensuite un tour d'Europe : Espagne, Italie, Tchécoslovaquie, URSS (le seul gardien), Écosse, Portugal."},
@@ -307,22 +324,23 @@ ${CH.map((c,i)=>{const ws=chW(i),m=ws.filter(w=>bx(w.y)>=3).length;return `<deta
 <button class="btn" onclick="startFc(${i})">Cartes sur ce chapitre</button><button class="btn alt" onclick="startQz(${i})">Quiz sur ce chapitre</button></details>`}).join("")}`;
 }
 
-function startFc(ch){if(ch!==undefined){sel=["c:"+ch];weak=false}fc={c:pick(0,10),i:0,ok:0,flip:false};tab="cartes";render();scrollTo(0,0)}
+function startFc(ch){if(ch!==undefined){sel=["c:"+ch];weak=false;if(dir==="f")dir="y"}let c=pick(0,999);if(dir==="f")c=c.filter((w,i)=>IMG[w.k]&&c.findIndex(x=>x.k===w.k)===i);fc={c:c.slice(0,10),i:0,ok:0,flip:false};tab="cartes";render();scrollTo(0,0)}
 function flip(){fc.flip=!fc.flip;document.querySelector(".card").classList.toggle("flip",fc.flip);$("rt").style.visibility=fc.flip?"visible":"hidden"}
-function rate(k){mark(fc.c[fc.i].y,!!k);if(k)fc.ok++;fc.i++;fc.flip=false;save();render()}
+function rate(k){if(dir!=="f")mark(fc.c[fc.i].y,!!k);if(k)fc.ok++;fc.i++;fc.flip=false;save();render()}
 function vCartes(){
 if(!fc)return `<h2>Cartes</h2><p class="lead">Séries de 10 cartes. Retourne, sois honnête : ce que tu rates revient en priorité, ce que tu connais s'espace.</p>
-<div class="lbl">Sens</div><div class="chips">${[["y","Année → joueur"],["p","Joueur → année"]].map(([v,l])=>`<button class="chip ${dir===v?"on":""}" onclick="dir='${v}';render()">${l}</button>`).join("")}</div>
-${scopeChips()}<button class="btn" ${pool().length?"":"disabled"} onclick="startFc()">Commencer la série</button>`;
+<div class="lbl">Sens</div><div class="chips">${[["y","Année → joueur"],["p","Joueur → année"],["f","Photo → joueur"]].map(([v,l])=>`<button class="chip ${dir===v?"on":""}" onclick="dir='${v}';render()">${l}</button>`).join("")}</div>
+${scopeChips()}<button class="btn" ${pool().length&&(dir!=="f"||Object.keys(IMG).length)?"":"disabled"} onclick="startFc()">${dir==="f"&&!Object.keys(IMG).length?"Chargement des photos…":"Commencer la série"}</button>${dir==="f"?`<p class="hint">En mode photo, chaque joueur n'apparaît qu'une fois et ta progression par année n'est pas modifiée.</p>`:""}`;
 if(fc.i>=fc.c.length)return `<h2>Série terminée</h2><p class="lead">${fc.ok}/${fc.c.length} connues du premier coup.</p><button class="btn" onclick="startFc()">Nouvelle série</button><button class="btn alt" onclick="fc=null;render()">Changer les réglages</button>`;
 const w=fc.c[fc.i],ys=W.filter(x=>x.k===w.k).map(x=>x.y);
 const front=dir==="y"?`<span class="yr" style="font-size:120px;line-height:.9">${w.y}</span><div class="hint">Qui a gagné ?</div>`
-:`<div style="font-size:32px;font-weight:700;line-height:1.1">${w.n}</div><div class="hint">${w.cl}${ys.length>1?`<br>L'un de ses ${ys.length} titres`:""}</div><div class="hint">En quelle année ?</div>`;
-const back=`<span class="yr" style="font-size:${dir==="y"?44:96}px;line-height:.9">${w.y}</span><div style="font-size:26px;font-weight:700;margin-top:8px;line-height:1.1">${w.n}</div><div class="hint" style="margin-top:6px">${w.cl}, ${w.c}, ${w.pos.toLowerCase()}</div><div class="hint" style="color:var(--goldp)">${w.f}</div>${ys.length>1?`<div class="hint">Tous ses titres : ${ys.join(", ")}</div>`:""}`;
+:dir==="f"?`${face(w.k,220)}<div class="hint">Qui est-ce ?</div>`
+:`${face(w.k,150)}<div style="font-size:32px;font-weight:700;line-height:1.1">${w.n}</div><div class="hint">${w.cl}${ys.length>1?`<br>L'un de ses ${ys.length} titres`:""}</div><div class="hint">En quelle année ?</div>`;
+const back=`${dir==="p"?"":face(w.k,dir==="f"?90:130)}<span class="yr" style="font-size:${dir==="p"?96:44}px;line-height:.9">${dir==="f"&&ys.length>1?ys.length+" titres":w.y}</span><div style="font-size:26px;font-weight:700;margin-top:8px;line-height:1.1">${w.n}</div><div class="hint" style="margin-top:6px">${w.cl}, ${w.c}, ${w.pos.toLowerCase()}</div><div class="hint" style="color:var(--goldp)">${w.f}</div>${ys.length>1?`<div class="hint">Tous ses titres : ${ys.join(", ")}</div>`:""}`;
 return `<div class="qtop"><span>Carte ${fc.i+1}/${fc.c.length}</span><button class="link" onclick="fc=null;render()">Quitter</button></div>
 <div class="bar"><i style="width:${fc.i/fc.c.length*100}%"></i></div>
 <div class="card" onclick="flip()"><div class="inner"><div class="face">${front}<div class="hint" style="margin-top:28px">Touche pour retourner</div></div><div class="face back">${back}</div></div></div>
-<div id="rt" style="display:flex;gap:10px;visibility:hidden"><button class="btn alt" onclick="rate(0)">À revoir</button><button class="btn" onclick="rate(1)">Je savais</button></div>`;
+<div id="rt" style="display:flex;gap:10px;visibility:hidden"><button class="btn alt" onclick="rate(0)">À revoir</button><button class="btn" onclick="rate(1)">Je savais</button></div><p class="hint" style="text-align:center">Photos : Wikipedia / Wikimedia Commons</p>`;
 }
 
 function opts(ok,c){return sh([ok,...sh(uniq(c.filter(x=>x!==ok))).slice(0,3)])}
@@ -417,7 +435,7 @@ return `<h2>Stats</h2><p class="lead">Ta progression, et les records à connaît
 <button class="btn alt" style="margin-top:28px;${rz?"border-color:var(--miss);color:var(--miss)":""}" onclick="reset()">${rz?"Confirmer : tout effacer":"Remettre ma progression à zéro"}</button>`;
 }
 
-load();
+load();photos();
 </script>
 </body>
 </html>
