@@ -7,6 +7,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Ballon d'Or">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="data:image/png;base64,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">
 <link rel="apple-touch-icon" href="data:image/png;base64,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">
 <title>Ballon d'Or, révisions</title>
@@ -15,12 +16,15 @@
 <style>
 :root{--deep:#08241D;--pitch:#0E3A2F;--pitch2:#124536;--gold:#D8AE3F;--goldp:#F2DF9E;--chalk:#E9EFE9;--dim:#9FB5AB;--miss:#E86A55;--line:rgba(233,239,233,.13)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{font-family:Figtree,system-ui,sans-serif;color:var(--chalk);background:var(--deep) repeating-linear-gradient(180deg,transparent 0 64px,rgba(255,255,255,.018) 64px 128px);min-height:100vh;padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+[hidden]{display:none!important}
+body{font-family:Figtree,system-ui,sans-serif;color:var(--chalk);background:var(--deep) repeating-linear-gradient(180deg,transparent 0 64px,rgba(255,255,255,.018) 64px 128px);min-height:100vh;padding-bottom:calc(80px + env(safe-area-inset-bottom));overscroll-behavior-y:none}
 button{cursor:pointer}
-header{position:sticky;top:0;z-index:5;background:var(--deep);padding:calc(12px + env(safe-area-inset-top)) 18px 12px;border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:5;background:var(--deep);padding:calc(10px + env(safe-area-inset-top)) 18px 10px;border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:baseline;justify-content:space-between;max-width:524px;margin:0 auto}
 .brand h1{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:28px;color:var(--gold)}
 .brand span{font-size:13px;color:var(--dim);font-weight:600}
+.day{max-width:524px;margin:2px auto 0;font-size:12px;color:var(--dim);font-weight:600}
+.day.ok{color:var(--gold)}
 .bar{height:6px;background:var(--line);border-radius:3px;margin:8px auto 0;overflow:hidden;max-width:524px}
 .bar i{display:block;height:100%;background:var(--gold);border-radius:3px;transition:width .4s}
 main{padding:20px 18px;max-width:560px;margin:0 auto}
@@ -34,6 +38,7 @@ h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:24px
 .yr{font-family:'Big Shoulders Display',sans-serif;font-weight:900;color:var(--gold);font-variant-numeric:tabular-nums}
 .btn{display:block;width:100%;border:0;border-radius:12px;padding:15px;font:700 16px Figtree,sans-serif;background:var(--gold);color:var(--deep);margin-top:10px}
 .btn.alt{background:transparent;color:var(--chalk);border:1.5px solid var(--line)}
+.btn:disabled{opacity:.35}
 .link{background:none;border:0;color:var(--dim);font:600 14px Figtree,sans-serif;text-decoration:underline}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 18px}
 .chip{border:1.5px solid var(--line);background:none;color:var(--chalk);border-radius:20px;padding:8px 13px;font:600 14px Figtree,sans-serif}
@@ -41,32 +46,36 @@ h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:24px
 .lbl{font-size:13px;color:var(--dim);font-weight:600}
 .chap{border-top:1px solid var(--line);padding:16px 0}
 .chap summary{list-style:none;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:12px}
-.chap summary::-webkit-details-marker{display:none}
+.chap summary::-webkit-details-marker,.grp summary::-webkit-details-marker{display:none}
+.plus{font-size:26px;color:var(--gold);transition:transform .2s}
 .chap[open] .plus,.grp[open] .plus{transform:rotate(45deg)}
 .grp{border-top:1px solid var(--line)}
 .grp summary{list-style:none;display:flex;align-items:center;gap:8px;padding:12px 0;font-weight:700;cursor:pointer}
-.grp summary::-webkit-details-marker{display:none}
 .grp summary .plus{margin-left:auto;font-size:22px}
 .grp .chips{margin-top:0}
-.btn:disabled{opacity:.35}
-.plus{font-size:26px;color:var(--gold);transition:transform .2s}
 .tip{border-left:3px solid var(--gold);padding:10px 14px;margin:14px 0 6px;background:rgba(216,174,63,.08);border-radius:0 10px 10px 0;font-size:14px;line-height:1.5}
+.trap{padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.5}
+.trap b{display:block;font-size:16px;margin-bottom:2px;color:var(--goldp)}
 .row{display:grid;grid-template-columns:62px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.row[onclick]{cursor:pointer}
 .row .yr{font-size:30px;line-height:1}
 .row b{font-size:16px}
 .row small{display:block;color:var(--dim);font-size:13px;margin-top:2px}
 .row em{display:block;font-style:normal;font-size:13px;color:var(--goldp);margin-top:4px;line-height:1.4}
 .row.hid b,.row.hid small,.row.hid em{filter:blur(7px);user-select:none}
 .ck{color:var(--gold);font-weight:800}
-.card{perspective:1000px;height:450px;margin:12px 0}
-.ph{border-radius:50%;object-fit:cover;object-position:50% 20%;border:3px solid var(--gold);flex:none;background:var(--deep);margin-bottom:12px}
-.ini{display:grid;place-items:center;font-family:'Big Shoulders Display',sans-serif;font-weight:900;color:var(--gold)}
+.card{perspective:1000px;height:450px;margin:12px 0;border-radius:18px;touch-action:pan-y;transition:transform .2s,opacity .2s}
+.card.drag{transition:none}
 .inner{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
 .card.flip .inner{transform:rotateY(180deg)}
-.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;background:var(--pitch);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px;text-align:center;overflow:auto}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;background:var(--pitch);border:2px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px;text-align:center;overflow:auto}
 .back{transform:rotateY(180deg);background:var(--pitch2)}
+.ph{border-radius:50%;object-fit:cover;object-position:50% 20%;border:3px solid var(--gold);flex:none;background:var(--deep);margin-bottom:12px}
+.ini{display:grid;place-items:center;font-family:'Big Shoulders Display',sans-serif;font-weight:900;color:var(--gold)}
+.phw{display:flex;justify-content:center;margin-top:12px}
 .hint{color:var(--dim);font-size:14px;margin-top:12px;line-height:1.45}
 .qtop{display:flex;justify-content:space-between;align-items:center;color:var(--dim);font-size:14px;font-weight:600;margin-bottom:6px}
+#tm{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:26px;color:var(--gold)}
 .qyear{font-size:96px;line-height:.9;margin:18px 0 4px}
 .qtext{font-size:19px;font-weight:600;line-height:1.35;margin:10px 0 16px}
 .opt{display:block;width:100%;text-align:left;background:var(--pitch);border:1.5px solid var(--line);color:var(--chalk);border-radius:12px;padding:14px 16px;font:600 16px Figtree,sans-serif;margin-bottom:9px}
@@ -79,21 +88,36 @@ h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:24px
 .fb.bad{border-color:var(--miss)}
 .txt{width:100%;padding:15px;border-radius:12px;border:1.5px solid var(--line);background:var(--pitch);color:var(--chalk);font:600 17px Figtree,sans-serif}
 .txt::placeholder{color:var(--dim);font-weight:500}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.spec{text-align:left;background:var(--pitch);border:1.5px solid var(--line);border-radius:14px;padding:14px;color:var(--chalk);font-family:Figtree,sans-serif;display:flex;flex-direction:column;gap:2px}
+.spec .yr{font-size:38px;line-height:1}
+.spec b{font-size:16px}
+.spec small{color:var(--dim);font-size:13px}
 .st{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;margin-bottom:10px;font-size:15px}
 .st .b{grid-column:1/-1;height:5px;background:var(--line);border-radius:3px;overflow:hidden}
 .st .b i{display:block;height:100%;background:var(--gold)}
 .sec{margin:26px 0 12px}
 .me{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
 .me div{background:var(--pitch);border:1px solid var(--line);border-radius:14px;padding:14px}
-.me .yr{font-size:40px;line-height:1;display:block}
+.me .yr{font-size:36px;line-height:1;display:block}
+#sheet{position:fixed;inset:0;z-index:30}
+.sh-bg{position:absolute;inset:0;background:rgba(0,0,0,.6)}
+.sh{position:absolute;left:0;right:0;bottom:0;max-width:560px;margin:0 auto;max-height:88vh;overflow:auto;background:var(--pitch);border-radius:20px 20px 0 0;padding:22px 18px calc(22px + env(safe-area-inset-bottom));animation:up .25s ease-out}
+.sh h2{text-align:center}
+.sh .lead{text-align:center}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+#toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--gold);color:var(--deep);font-weight:700;font-size:14px;padding:10px 16px;border-radius:20px;transition:.25s;z-index:40;white-space:nowrap}
+#toast.on{opacity:1;transform:translate(-50%,0)}
 :focus-visible{outline:2px solid var(--goldp);outline-offset:2px}
-@media (prefers-reduced-motion:reduce){.inner,.bar i,.plus{transition:none}}
+@media (prefers-reduced-motion:reduce){.inner,.bar i,.plus,.card,#toast{transition:none}.sh{animation:none}}
 </style>
 </head>
 <body>
-<header><div class="brand"><h1>Ballon d'Or</h1><span id="prog"></span></div><div class="bar"><i id="pbar"></i></div></header>
+<header><div class="brand"><h1>Ballon d'Or</h1><span id="prog"></span></div><div class="day" id="day"></div><div class="bar"><i id="pbar"></i></div></header>
 <main id="v"></main>
 <nav id="nav"></nav>
+<div id="sheet" hidden></div>
+<div id="toast"></div>
 <script>
 const P={
 matthews:["Stanley Matthews","Angleterre","Ailier",["matthews"]],
@@ -216,21 +240,6 @@ const D=[
 [2025,"dembele","Paris Saint-Germain","Première C1 du PSG. Sixième Français au palmarès."]
 ];
 const WK={matthews:"Stanley Matthews",distefano:"Alfredo Di Stéfano",kopa:"Raymond Kopa",suarez:"Luis Suárez Miramontes",sivori:"Omar Sívori",masopust:"Josef Masopust",yachine:"Lev Yashin",law:"Denis Law",eusebio:"Eusébio",charlton:"Bobby Charlton",albert:"Flórián Albert",best:"George Best",rivera:"Gianni Rivera",muller:"Gerd Müller",cruyff:"Johan Cruyff",beckenbauer:"Franz Beckenbauer",blokhine:"Oleh Blokhin",simonsen:"Allan Simonsen",keegan:"Kevin Keegan",rummenigge:"Karl-Heinz Rummenigge",rossi:"Paolo Rossi",platini:"Michel Platini",belanov:"Igor Belanov",gullit:"Ruud Gullit",vanbasten:"Marco van Basten",matthaus:"Lothar Matthäus",papin:"Jean-Pierre Papin",baggio:"Roberto Baggio",stoitchkov:"Hristo Stoichkov",weah:"George Weah",sammer:"Matthias Sammer",ronaldo:"Ronaldo (Brazilian footballer)",zidane:"Zinedine Zidane",rivaldo:"Rivaldo",figo:"Luís Figo",owen:"Michael Owen",nedved:"Pavel Nedvěd",shevchenko:"Andriy Shevchenko",ronaldinho:"Ronaldinho",cannavaro:"Fabio Cannavaro",kaka:"Kaká",cr7:"Cristiano Ronaldo",messi:"Lionel Messi",modric:"Luka Modrić",benzema:"Karim Benzema",rodri:"Rodri (footballer, born 1996)",dembele:"Ousmane Dembélé"};
-let IMG={};
-async function photos(){
-try{
-const ks=Object.keys(WK);
-const u="https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1&prop=pageimages&piprop=thumbnail&pithumbsize=500&pilimit=50&pilicense=free&titles="+encodeURIComponent(ks.map(k=>WK[k]).join("|"));
-const d=(await (await fetch(u)).json()).query,m={},t={};
-(d.normalized||[]).forEach(x=>m[x.from]=x.to);
-(d.redirects||[]).forEach(x=>m[x.from]=x.to);
-Object.values(d.pages).forEach(x=>{if(x.thumbnail)t[x.title]=x.thumbnail.source});
-ks.forEach(k=>{let n=WK[k];n=m[n]||n;n=m[n]||n;if(t[n])IMG[k]=t[n]});
-if(tab==="cartes"&&(!fc||!fc.flip))render();
-}catch(e){}
-}
-const face=(k,z)=>IMG[k]?`<img class="ph" src="${IMG[k]}" alt="" style="width:${z}px;height:${z}px">`:`<div class="ph ini" style="width:${z}px;height:${z}px;font-size:${Math.round(z/2.6)}px">${P[k][0].split(" ").map(x=>x[0]).join("").slice(0,2)}</div>`;
-const W=D.map(([y,k,cl,f])=>({y,k,cl,f,n:P[k][0],c:P[k][1],pos:P[k][2],a:P[k][3]}));
 const CH=[
 {a:1956,b:1965,t:"Les pionniers",tip:"Real Madrid en ouverture : Di Stéfano 57 et 59, Kopa au milieu en 58. Ensuite un tour d'Europe : Espagne, Italie, Tchécoslovaquie, URSS (le seul gardien), Écosse, Portugal."},
 {a:1966,b:1975,t:"Manchester, Cruyff et la RFA",tip:"Manchester United deux fois en trois ans : Charlton 66, Best 68. Cruyff prend 71, 73, 74, et Beckenbauer lui vole 72. Müller 70 ouvre le compteur allemand."},
@@ -258,25 +267,42 @@ const TABS=[
 ["liste","Palmarès",'<path d="M9 6h12M9 12h12M9 18h12M4 6h.01M4 12h.01M4 18h.01"/>'],
 ["stats","Stats",'<path d="M5 20V11M11 20V4M17 20v-7M2 20h20"/>']
 ];
-const MODES=[["mix","Mélange"],["y2p","Année → joueur"],["p2y","Joueur → année"],["club","Club"],["nat","Nationalité"],["input","Saisie libre"],["order","Chronologie"]];
+const TRAPS=[
+["Ronaldo ou Cristiano ?","Ronaldo, le Brésilien : 1997 (Inter) et 2002 (Real). Cristiano Ronaldo, le Portugais : 2008, 2013, 2014, 2016 et 2017."],
+["Ronaldo ou Ronaldinho ?","Ronaldo 2002 au Real, Ronaldinho 2005 au Barça. Deux Brésiliens, deux clubs rivaux."],
+["Les doublés collés","Keegan 1978-79 avec Hambourg, puis Rummenigge 1980-81 avec le Bayern. Deux paires à la suite."],
+["Les triplés à trou","Cruyff 71, 73, 74 (Beckenbauer prend 72). Van Basten 88, 89, 92 (Matthäus 90 et Papin 91 au milieu)."],
+["Le sandwich du Real","Di Stéfano 57 et 59, Kopa 58 entre les deux. Trois titres, un seul club."],
+["Beckenbauer n'enchaîne pas","Ses deux titres sont 1972 et 1976, séparés de quatre ans."],
+["Séries d'affilée","Platini 83-84-85 : premier triplé consécutif. Messi 2009 à 2012 : le seul quadruplé."],
+["Quel Luis Suárez ?","Le lauréat 1960 est un Espagnol du Barça, rien à voir avec l'attaquant uruguayen des années 2010."],
+["Les deux George","George Best en 1968 avec Manchester United, George Weah en 1995 avec Milan."],
+["RFA ou Allemagne ?","Müller, Beckenbauer, Rummenigge et Matthäus sont comptés pour la RFA. Sammer (1996) est le seul lauréat de l'Allemagne réunifiée."],
+["Kiev, deux drapeaux","Blokhine 1975 et Belanov 1986 jouent au Dynamo Kiev pour l'URSS. Shevchenko 2004 est ukrainien, mais sacré avec Milan."],
+["Le trou de 2020","Aucun lauréat en 2020 : Messi 2019, puis Messi 2021."]
+];
+const MODES=[["mix","Mélange"],["y2p","Année → joueur"],["p2y","Joueur → année"],["photo","Photo → joueur"],["club","Club"],["nat","Nationalité"],["input","Saisie libre"],["order","Chronologie"]];
+const W=D.map(([y,k,cl,f])=>({y,k,cl,f,n:P[k][0],c:P[k][1],pos:P[k][2],a:P[k][3]}));
+const DEF={box:{},games:0,best:0,exam:0,chrono:0,cfg:{},img:{},d:{day:"",n:0,goal:10,streak:0,last:""}};
+const clone=o=>JSON.parse(JSON.stringify(o));
 
-let S={box:{},games:0,best:0},tab="cours",sel=[],weak=false,nq=10,og={},mode="mix",dir="y",fc=null,qz=null,hide=false,q="",rz=false;
+let S=clone(DEF),tab="cours",sel=[],weak=false,nq=10,mode="mix",dir="y",og={},fc=null,qz=null,hide=false,q="",rz=false,IMG={},timer=null,lastCfg="",tx=null,dx=0,mv=false,busy=false;
 
 const $=id=>document.getElementById(id);
 const bx=y=>S.box[y]||0;
 const sh=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const uniq=a=>[...new Set(a)];
+const rnd=a=>a[Math.floor(Math.random()*a.length)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const norm=s=>String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim();
-
-function lev(a,b){let p=[...Array(b.length+1).keys()];for(let i=1;i<=a.length;i++){let c=[i];for(let j=1;j<=b.length;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[b.length]}
-function accept(v,w){const i=norm(v);if(!i)return false;const f=norm(w.n);return [f,f.split(" ").pop(),...w.a.map(norm)].some(x=>x===i||(x.length>5&&lev(x,i)<=1))}
-
-async function load(){try{const v=window.storage?(await window.storage.get("bdor-v1")).value:localStorage.getItem("bdor-v1");if(v)S=Object.assign(S,JSON.parse(v))}catch(e){}render()}
-async function save(){try{window.storage?await window.storage.set("bdor-v1",JSON.stringify(S),false):localStorage.setItem("bdor-v1",JSON.stringify(S))}catch(e){}}
-function mark(y,ok){S.box[y]=ok?Math.min(5,bx(y)+1):1}
-
+const day=n=>new Date(Date.now()-n*864e5).toLocaleDateString("sv");
+const today=()=>S.d.day===day(0)?S.d.n:0;
+const streak=()=>S.d.last===day(0)||S.d.last===day(1)?S.d.streak:0;
+const yearsOf=k=>W.filter(w=>w.k===k).map(w=>w.y);
+const vib=()=>{try{navigator.vibrate&&navigator.vibrate(180)}catch(e){}};
 const chW=i=>W.filter(w=>w.y>=CH[i].a&&w.y<=CH[i].b);
+
+function counts(k){const m={};W.forEach(w=>m[w[k]]=(m[w[k]]||0)+1);return Object.entries(m).sort((a,b)=>b[1]-a[1])}
 const GR=[
 ["Chapitres",CH.map((c,i)=>["c:"+i,c.a+"–"+String(c.b).slice(2)+", "+c.t])],
 ["Décennies",uniq(W.map(w=>Math.floor(w.y/10)*10)).map(d=>["d:"+d,"Années "+(d<2000?String(d).slice(2):d)])],
@@ -284,73 +310,171 @@ const GR=[
 ["Clubs",counts("cl").map(([k,v])=>["k:"+k,k+" ("+v+")"])]
 ];
 const KEYS=GR.flatMap(g=>g[1].map(x=>x[0]));
+
+function lev(a,b){let p=[...Array(b.length+1).keys()];for(let i=1;i<=a.length;i++){let c=[i];for(let j=1;j<=b.length;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[b.length]}
+function accept(v,w){const i=norm(v);if(!i)return false;const f=norm(w.n);return [f,f.split(" ").pop(),...w.a.map(norm)].some(x=>x===i||(x.length>5&&lev(x,i)<=1))}
+
+async function load(){
+try{
+const v=window.storage?(await window.storage.get("bdor-v1")).value:localStorage.getItem("bdor-v1");
+if(v){const o=JSON.parse(v);S=Object.assign(clone(DEF),o);S.d=Object.assign(clone(DEF.d),o.d)}
+}catch(e){}
+const c=S.cfg||{};
+sel=(c.sel||[]).filter(k=>KEYS.includes(k));weak=!!c.weak;nq=c.nq||10;mode=c.mode||"mix";dir=c.dir||"y";
+IMG=S.img||{};
+render();photos();
+}
+async function save(){try{window.storage?await window.storage.set("bdor-v1",JSON.stringify(S),false):localStorage.setItem("bdor-v1",JSON.stringify(S))}catch(e){}}
+
+async function photos(){
+try{
+const ks=Object.keys(WK);
+const u="https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1&prop=pageimages&piprop=thumbnail&pithumbsize=500&pilimit=50&pilicense=free&titles="+encodeURIComponent(ks.map(k=>WK[k]).join("|"));
+const d=(await (await fetch(u)).json()).query,m={},t={},r={};
+(d.normalized||[]).forEach(x=>m[x.from]=x.to);
+(d.redirects||[]).forEach(x=>m[x.from]=x.to);
+Object.values(d.pages).forEach(x=>{if(x.thumbnail)t[x.title]=x.thumbnail.source});
+ks.forEach(k=>{let n=WK[k];n=m[n]||n;n=m[n]||n;if(t[n])r[k]=t[n]});
+if(!Object.keys(r).length)return;
+IMG=r;S.img=r;save();
+if((tab==="cartes"&&!fc)||(tab==="quiz"&&!qz))render();
+}catch(e){}
+}
+const face=(k,z)=>IMG[k]?`<img class="ph" src="${IMG[k]}" alt="${P[k][0]}" style="width:${z}px;height:${z}px" onerror="this.style.visibility='hidden'">`:`<div class="ph ini" style="width:${z}px;height:${z}px;font-size:${Math.round(z/2.6)}px">${P[k][0].split(" ").map(x=>x[0]).join("").slice(0,2)}</div>`;
+
+function mark(y,ok){S.box[y]=ok?Math.min(5,bx(y)+1):1}
+function tick(){
+const t=day(0);
+if(S.d.day!==t){S.d.day=t;S.d.n=0}
+S.d.n++;
+if(S.d.n===S.d.goal){S.d.streak=S.d.last===t?S.d.streak:S.d.last===day(1)?S.d.streak+1:1;S.d.last=t;toast(`Objectif du jour atteint, série de ${S.d.streak} jour${S.d.streak>1?"s":""}`)}
+}
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("on"),2600)}
+
 function tg(i){const k=KEYS[i];sel=sel.includes(k)?sel.filter(x=>x!==k):[...sel,k];render()}
 function inSel(w,k){const t=k[0],v=k.slice(2);return t==="c"?w.y>=CH[v].a&&w.y<=CH[v].b:t==="d"?Math.floor(w.y/10)*10==v:t==="n"?w.c===v:w.cl===v}
 function pool(ys){
 if(ys)return W.filter(w=>ys.includes(w.y));
-let p=sel.length?W.filter(w=>sel.some(k=>inSel(w,k))):W;
+const p=sel.length?W.filter(w=>sel.some(k=>inSel(w,k))):W;
 return weak?p.filter(w=>bx(w.y)<3):p;
 }
 function pick(ys,n){let p=pool(ys);if(!p.length)p=W;return sh(p).sort((a,b)=>bx(a.y)-bx(b.y)).slice(0,n)}
 
 function go(t){tab=t;render();scrollTo(0,0)}
 function render(){
-const m=W.filter(w=>bx(w.y)>=3).length;
+const cf=JSON.stringify({sel,weak,nq,mode,dir});
+if(cf!==lastCfg){lastCfg=cf;S.cfg=JSON.parse(cf);save()}
+const m=W.filter(w=>bx(w.y)>=3).length,td=today(),st=streak();
 $("prog").textContent=m+"/"+W.length+" maîtrisés";
 $("pbar").style.width=m/W.length*100+"%";
+$("day").textContent=`Aujourd'hui ${Math.min(td,S.d.goal)}/${S.d.goal}${st?`, série de ${st} jour${st>1?"s":""}`:""}`;
+$("day").className="day"+(td>=S.d.goal?" ok":"");
 $("nav").innerHTML=TABS.map(([k,l,s])=>`<button class="${tab===k?"on":""}" onclick="go('${k}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${s}</svg>${l}</button>`).join("");
 $("v").innerHTML={cours:vCours,cartes:vCartes,quiz:vQuiz,liste:vListe,stats:vStats}[tab]();
 if($("in"))$("in").focus();
 }
 
-function row(w,tap){return `<div class="row ${tap&&hide?"hid":""}" ${tap?`onclick="this.classList.remove('hid')"`:""}><span class="yr">${w.y}</span><div><b>${w.n}</b>${bx(w.y)>=3?' <span class="ck">✓</span>':""}<small>${w.cl}, ${w.c}</small><em>${w.f}</em></div></div>`}
+function row(w,tap){return `<div class="row ${tap&&hide?"hid":""}" onclick="rowTap(this,'${w.k}')"><span class="yr">${w.y}</span><div><b>${w.n}</b>${bx(w.y)>=3?' <span class="ck">✓</span>':""}<small>${w.cl}, ${w.c}</small><em>${w.f}</em></div></div>`}
 function gap(){return `<div class="row"><span class="yr">2020</span><div><b>Non décerné</b><small>Édition annulée à cause du Covid</small></div></div>`}
 function rows(a,b,tap){let o="";for(let y=a;y<=b;y++){const w=W.find(x=>x.y===y);o+=w?row(w,tap):gap()}return o}
+function rowTap(el,k){if(el.classList.contains("hid"))return el.classList.remove("hid");fiche(k)}
+function fiche(k){
+const ws=W.filter(w=>w.k===k);
+$("sheet").innerHTML=`<div class="sh-bg" onclick="closeF()"></div><div class="sh"><div class="phw">${face(k,130)}</div><h2>${P[k][0]}</h2><p class="lead">${P[k][1]}, ${P[k][2].toLowerCase()}. ${ws.length} Ballon${ws.length>1?"s":""} d'Or avec ${uniq(ws.map(w=>w.cl)).join(" puis ")}.</p>
+${ws.map(w=>`<div class="row"><span class="yr">${w.y}</span><div><b>${w.cl}</b><em>${w.f}</em></div></div>`).join("")}
+<button class="btn alt" onclick="closeF()">Fermer</button></div>`;
+$("sheet").hidden=false;
+}
+function closeF(){$("sheet").hidden=true}
 
 function scopeChips(){
 let n=0;
+const c=pool().length;
 return `<div class="lbl">Quels Ballons d'Or ? Combine autant de catégories que tu veux.</div>
 <div class="chips"><button class="chip ${sel.length?"":"on"}" onclick="sel=[];render()">Tout</button><button class="chip ${weak?"on":""}" onclick="weak=!weak;render()">Seulement à travailler</button></div>
-${GR.map(([t,l],g)=>{const c=l.filter(x=>sel.includes(x[0])).length;return `<details class="grp" ${og[g]?"open":""} ontoggle="og[${g}]=this.open"><summary>${t}${c?` <span class="ck">${c}</span>`:""}<span class="plus">+</span></summary><div class="chips">${l.map(([k,x])=>`<button class="chip ${sel.includes(k)?"on":""}" onclick="tg(${n++})">${x}</button>`).join("")}</div></details>`}).join("")}
-<p class="lbl" style="margin:16px 0 4px">${pool().length} titres dans ta sélection${pool().length?"":". Retire le filtre « à travailler » ou ajoute une catégorie."}</p>`;
+${GR.map(([t,l],g)=>{const k=l.filter(x=>sel.includes(x[0])).length;return `<details class="grp" ${og[g]?"open":""} ontoggle="og[${g}]=this.open"><summary>${t}${k?` <span class="ck">${k}</span>`:""}<span class="plus">+</span></summary><div class="chips">${l.map(([key,x])=>`<button class="chip ${sel.includes(key)?"on":""}" onclick="tg(${n++})">${x}</button>`).join("")}</div></details>`}).join("")}
+<p class="lbl" style="margin:16px 0 4px">${c} titres dans ta sélection${c?"":". Retire le filtre « à travailler » ou ajoute une catégorie."}</p>`;
 }
 
 function vCours(){
-return `<h2>Réviser</h2><p class="lead">69 titres découpés en 7 chapitres de dix ans. Lis un chapitre, puis lance les cartes ou le quiz dessus. Le ✓ doré marque une année maîtrisée (3 bonnes réponses d'affilée).</p>
+return `<h2>Réviser</h2><p class="lead">69 titres découpés en 7 chapitres de dix ans. Lis un chapitre, puis lance les cartes ou le quiz dessus. Touche un joueur pour ouvrir sa fiche. Le ✓ doré marque une année maîtrisée (3 bonnes réponses d'affilée).</p>
 <details class="chap"><summary><div><h3>Les règles du jeu</h3><div class="lbl">Ce qui a changé depuis 1956</div></div><span class="plus">+</span></summary>
 ${RULES.map(([y,t])=>`<div class="row"><span class="yr">${y}</span><div style="font-size:14px;line-height:1.45">${t}</div></div>`).join("")}</details>
+<details class="chap"><summary><div><h3>Les pièges classiques</h3><div class="lbl">Les confusions à éviter</div></div><span class="plus">+</span></summary>
+${TRAPS.map(([t,x])=>`<div class="trap"><b>${t}</b>${x}</div>`).join("")}</details>
 ${CH.map((c,i)=>{const ws=chW(i),m=ws.filter(w=>bx(w.y)>=3).length;return `<details class="chap"><summary><div><span class="yr" style="font-size:16px">${c.a} à ${c.b}</span><h3>${c.t}</h3><div class="lbl">${m}/${ws.length} maîtrisés</div></div><span class="plus">+</span></summary>
 <div class="tip"><b>Pour retenir.</b> ${c.tip}</div>${rows(c.a,c.b)}
 <button class="btn" onclick="startFc(${i})">Cartes sur ce chapitre</button><button class="btn alt" onclick="startQz(${i})">Quiz sur ce chapitre</button></details>`}).join("")}`;
 }
 
-function startFc(ch){if(ch!==undefined){sel=["c:"+ch];weak=false;if(dir==="f")dir="y"}let c=pick(0,999);if(dir==="f")c=c.filter((w,i)=>IMG[w.k]&&c.findIndex(x=>x.k===w.k)===i);fc={c:c.slice(0,10),i:0,ok:0,flip:false};tab="cartes";render();scrollTo(0,0)}
+function startFc(ch){
+if(ch!==undefined){sel=["c:"+ch];weak=false;if(dir==="f")dir="y"}
+let c=pick(0,999);
+if(dir==="f")c=c.filter((w,i)=>IMG[w.k]&&c.findIndex(x=>x.k===w.k)===i);
+fc={c:c.slice(0,10),i:0,ok:0,flip:false};
+tab="cartes";render();scrollTo(0,0);
+}
 function flip(){fc.flip=!fc.flip;document.querySelector(".card").classList.toggle("flip",fc.flip);$("rt").style.visibility=fc.flip?"visible":"hidden"}
-function rate(k){if(dir!=="f")mark(fc.c[fc.i].y,!!k);if(k)fc.ok++;fc.i++;fc.flip=false;save();render()}
+function cardTap(){if(mv){mv=false;return}flip()}
+function rate(k){
+if(busy)return;
+if(!k)vib();
+if(dir!=="f")mark(fc.c[fc.i].y,!!k);
+tick();
+if(k)fc.ok++;
+fc.i++;fc.flip=false;save();render();
+}
+function ts(e){if(!fc||!fc.flip)return;tx=e.touches[0].clientX;dx=0;mv=false;document.querySelector(".card").classList.add("drag")}
+function tm(e){
+if(tx===null)return;
+dx=e.touches[0].clientX-tx;
+if(Math.abs(dx)>8)mv=true;
+const c=document.querySelector(".card");
+c.style.transform=`translateX(${dx}px) rotate(${dx/22}deg)`;
+c.querySelector(".back").style.borderColor=dx>40?"var(--gold)":dx<-40?"var(--miss)":"";
+}
+function te(){
+if(tx===null)return;
+tx=null;
+const c=document.querySelector(".card");
+c.classList.remove("drag");
+if(Math.abs(dx)>90){
+busy=true;
+c.style.transform=`translateX(${dx>0?600:-600}px) rotate(${dx>0?25:-25}deg)`;c.style.opacity=0;
+setTimeout(()=>{busy=false;mv=false;rate(dx>0?1:0)},200);
+}else{c.style.transform="";c.querySelector(".back").style.borderColor=""}
+}
 function vCartes(){
-if(!fc)return `<h2>Cartes</h2><p class="lead">Séries de 10 cartes. Retourne, sois honnête : ce que tu rates revient en priorité, ce que tu connais s'espace.</p>
+const noImg=!Object.keys(IMG).length;
+if(!fc)return `<h2>Cartes</h2><p class="lead">Séries de 10 cartes. Touche pour retourner, puis glisse à droite si tu savais, à gauche sinon. Ce que tu rates revient en priorité.</p>
 <div class="lbl">Sens</div><div class="chips">${[["y","Année → joueur"],["p","Joueur → année"],["f","Photo → joueur"]].map(([v,l])=>`<button class="chip ${dir===v?"on":""}" onclick="dir='${v}';render()">${l}</button>`).join("")}</div>
-${scopeChips()}<button class="btn" ${pool().length&&(dir!=="f"||Object.keys(IMG).length)?"":"disabled"} onclick="startFc()">${dir==="f"&&!Object.keys(IMG).length?"Chargement des photos…":"Commencer la série"}</button>${dir==="f"?`<p class="hint">En mode photo, chaque joueur n'apparaît qu'une fois et ta progression par année n'est pas modifiée.</p>`:""}`;
+${scopeChips()}<button class="btn" ${pool().length&&(dir!=="f"||!noImg)?"":"disabled"} onclick="startFc()">${dir==="f"&&noImg?"Chargement des photos…":"Commencer la série"}</button>
+${dir==="f"?`<p class="hint">En mode photo, chaque joueur n'apparaît qu'une fois et ta progression par année n'est pas modifiée.</p>`:""}`;
+if(!fc.c.length)return `<h2>Cartes</h2><p class="lead">Aucun joueur avec photo dans ta sélection. Élargis la sélection ou choisis un autre sens.</p><button class="btn" onclick="fc=null;render()">Changer les réglages</button>`;
 if(fc.i>=fc.c.length)return `<h2>Série terminée</h2><p class="lead">${fc.ok}/${fc.c.length} connues du premier coup.</p><button class="btn" onclick="startFc()">Nouvelle série</button><button class="btn alt" onclick="fc=null;render()">Changer les réglages</button>`;
-const w=fc.c[fc.i],ys=W.filter(x=>x.k===w.k).map(x=>x.y);
+const w=fc.c[fc.i],ys=yearsOf(w.k);
 const front=dir==="y"?`<span class="yr" style="font-size:120px;line-height:.9">${w.y}</span><div class="hint">Qui a gagné ?</div>`
 :dir==="f"?`${face(w.k,220)}<div class="hint">Qui est-ce ?</div>`
 :`${face(w.k,150)}<div style="font-size:32px;font-weight:700;line-height:1.1">${w.n}</div><div class="hint">${w.cl}${ys.length>1?`<br>L'un de ses ${ys.length} titres`:""}</div><div class="hint">En quelle année ?</div>`;
 const back=`${dir==="p"?"":face(w.k,dir==="f"?90:130)}<span class="yr" style="font-size:${dir==="p"?96:44}px;line-height:.9">${dir==="f"&&ys.length>1?ys.length+" titres":w.y}</span><div style="font-size:26px;font-weight:700;margin-top:8px;line-height:1.1">${w.n}</div><div class="hint" style="margin-top:6px">${w.cl}, ${w.c}, ${w.pos.toLowerCase()}</div><div class="hint" style="color:var(--goldp)">${w.f}</div>${ys.length>1?`<div class="hint">Tous ses titres : ${ys.join(", ")}</div>`:""}`;
 return `<div class="qtop"><span>Carte ${fc.i+1}/${fc.c.length}</span><button class="link" onclick="fc=null;render()">Quitter</button></div>
 <div class="bar"><i style="width:${fc.i/fc.c.length*100}%"></i></div>
-<div class="card" onclick="flip()"><div class="inner"><div class="face">${front}<div class="hint" style="margin-top:28px">Touche pour retourner</div></div><div class="face back">${back}</div></div></div>
-<div id="rt" style="display:flex;gap:10px;visibility:hidden"><button class="btn alt" onclick="rate(0)">À revoir</button><button class="btn" onclick="rate(1)">Je savais</button></div><p class="hint" style="text-align:center">Photos : Wikipedia / Wikimedia Commons</p>`;
+<div class="card" onclick="cardTap()" ontouchstart="ts(event)" ontouchmove="tm(event)" ontouchend="te()"><div class="inner"><div class="face">${front}<div class="hint" style="margin-top:28px">Touche pour retourner</div></div><div class="face back">${back}</div></div></div>
+<div id="rt" style="display:flex;gap:10px;visibility:hidden"><button class="btn alt" onclick="rate(0)">À revoir</button><button class="btn" onclick="rate(1)">Je savais</button></div>
+<p class="hint" style="text-align:center">Glisse à droite : je savais. À gauche : à revoir.<br>Photos : Wikipedia / Wikimedia Commons</p>`;
 }
 
 function opts(ok,c){return sh([ok,...sh(uniq(c.filter(x=>x!==ok))).slice(0,3)])}
 function mkQ(t,w){
-if(t==="y2p")return {t,w,big:w.y,txt:"Qui a remporté le Ballon d'Or cette année-là ?",ok:w.n,o:opts(w.n,W.filter(x=>Math.abs(x.y-w.y)<=12).map(x=>x.n))};
+const near=W.filter(x=>Math.abs(x.y-w.y)<=12).map(x=>x.n);
+if(t==="photo"&&!IMG[w.k])t="y2p";
+if(t==="y2p")return {t,w,big:w.y,txt:"Qui a remporté le Ballon d'Or cette année-là ?",ok:w.n,o:opts(w.n,near)};
+if(t==="photo")return {t,w,img:w.k,txt:"Qui est-ce ?",ok:w.n,o:opts(w.n,near)};
 if(t==="club")return {t,w,big:w.y,txt:`Avec quel club ${w.n} est-il sacré ?`,ok:w.cl,o:opts(w.cl,W.map(x=>x.cl))};
 if(t==="nat")return {t,w,big:w.y,txt:"De quelle nationalité est le lauréat ?",ok:w.c,o:opts(w.c,W.map(x=>x.c))};
 if(t==="input")return {t,w,big:w.y,txt:"Écris le nom du lauréat.",ok:w.n};
 if(t==="p2y"){
-const ys=W.filter(x=>x.k===w.k).map(x=>x.y),c=[];
+const ys=yearsOf(w.k),c=[];
 for(let d=-7;d<=7;d++){const y=w.y+d;if(y>=1956&&y<=2025&&y!==2020&&!ys.includes(y))c.push(y)}
 return {t,w,txt:`En quelle année ${w.n} (${w.cl}) remporte-t-il le Ballon d'Or${ys.length>1?`, pour l'un de ses ${ys.length} titres`:""} ?`,ok:w.y,o:opts(w.y,c).sort((a,b)=>a-b)};
 }
@@ -358,53 +482,106 @@ const p=pool(),s=[w];
 for(const x of [...sh(p.length>=8?p:W),...sh(W)]){if(s.length===4)break;if(!s.some(z=>z.k===x.k))s.push(x)}
 return {t,w,txt:"Touche les lauréats du plus ancien au plus récent.",items:sh(s),pk:[]};
 }
+function newQz(o){return Object.assign({q:[],i:0,sc:0,st:0,best:0,err:[],done:false},o)}
 function startQz(sc){
+clearInterval(timer);
+if(sc==="chrono"){
+qz=newQz({chrono:true,end:Date.now()+60000});
+addChrono();
+timer=setInterval(ctick,250);
+}else if(sc==="exam"){
+qz=newQz({exam:true,q:sh(W).map(w=>mkQ("input",w))});
+}else{
 if(typeof sc==="number"){sel=["c:"+sc];weak=false}
-const ys=Array.isArray(sc)?sc:0,c=pick(ys,ys?ys.length:nq),types=["y2p","p2y","club","nat","input"];
-qz={q:c.map(w=>mkQ(mode==="mix"?types[Math.floor(Math.random()*types.length)]:mode,w)),i:0,sc:0,st:0,best:0,err:[],done:false};
+const types=["y2p","p2y","club","nat","input"].concat(Object.keys(IMG).length?["photo"]:[]);
+const ys=Array.isArray(sc)?sc:0;
+qz=newQz({q:pick(ys,ys?ys.length:nq).map(w=>mkQ(mode==="mix"?rnd(types):mode,w))});
+}
 tab="quiz";render();scrollTo(0,0);
 }
+function addChrono(){
+const p=pool().length?pool():W,prev=qz.q.length?qz.q[qz.q.length-1].w.y:0;
+let w=rnd(p);
+for(let i=0;i<5&&p.length>1&&w.y===prev;i++)w=rnd(p);
+qz.q.push(mkQ(rnd(["y2p","p2y"].concat(IMG[w.k]?["photo"]:[])),w));
+}
+function ctick(){
+if(!qz||!qz.chrono||qz.done)return clearInterval(timer);
+const r=Math.max(0,qz.end-Date.now());
+if($("tm"))$("tm").textContent=Math.ceil(r/1000)+" s";
+if($("tb"))$("tb").style.width=r/600+"%";
+if(!r)finish();
+}
+function finish(){
+clearInterval(timer);
+qz.done=true;S.games++;
+if(qz.chrono)S.chrono=Math.max(S.chrono,qz.sc);
+else if(qz.exam)S.exam=Math.max(S.exam,qz.sc);
+else S.best=Math.max(S.best,Math.round(qz.sc/qz.q.length*100));
+save();render();scrollTo(0,0);
+}
+function next(){
+if(!qz||qz.done)return;
+if(qz.chrono){if(Date.now()>=qz.end)return finish();addChrono();qz.i++;return render()}
+qz.i++;
+if(qz.i>=qz.q.length)return finish();
+render();scrollTo(0,0);
+}
 function res(good){
-const x=qz.q[qz.i];x.good=good;
-if(x.t!=="order")mark(x.w.y,good);
-if(good){qz.sc++;qz.st++;qz.best=Math.max(qz.best,qz.st)}else{qz.st=0;qz.err.push(x)}
+const x=qz.q[qz.i];
+x.good=good;
+if(x.t!=="order"&&x.t!=="photo")mark(x.w.y,good);
+tick();
+if(good){qz.sc++;qz.st++;qz.best=Math.max(qz.best,qz.st)}else{qz.st=0;qz.err.push(x);vib()}
 save();render();
+if(good||qz.chrono){const z=qz,i=qz.i;setTimeout(()=>{if(qz===z&&qz.i===i)next()},qz.chrono?(good?250:800):900)}
 }
 function ans(i){const x=qz.q[qz.i];if(x.a!==undefined)return;x.a=i;res(x.o[i]===x.ok)}
 function sub(){const x=qz.q[qz.i];if(x.a!==undefined)return;x.a=$("in").value;res(accept(x.a,x.w))}
 function ord(j){
-const x=qz.q[qz.i];if(x.a!==undefined||x.pk.includes(j))return;
+const x=qz.q[qz.i];
+if(x.a!==undefined||x.pk.includes(j))return;
 x.pk.push(j);
 if(x.pk.length<4)return render();
-x.a=1;const ys=x.pk.map(k=>x.items[k].y);
+x.a=1;
+const ys=x.pk.map(k=>x.items[k].y);
 res(ys.every((y,k)=>!k||y>ys[k-1]));
 }
-function next(){qz.i++;if(qz.i>=qz.q.length){qz.done=true;S.games++;S.best=Math.max(S.best,Math.round(qz.sc/qz.q.length*100));save()}render();scrollTo(0,0)}
+function quitQz(){clearInterval(timer);qz=null;render()}
 function vQuiz(){
-if(!qz)return `<h2>Quiz</h2><p class="lead">Les années que tu maîtrises le moins passent en premier.</p>
+if(!qz)return `<h2>Quiz</h2><p class="lead">Les années que tu maîtrises le moins passent en premier. Une bonne réponse passe toute seule à la suite.</p>
+<div class="duo"><button class="spec" onclick="startQz('chrono')"><span class="yr">60 s</span><b>Contre-la-montre</b><small>Sur ta sélection. Record : ${S.chrono}</small></button><button class="spec" onclick="startQz('exam')"><span class="yr">69</span><b>Examen final</b><small>Tous les titres à écrire. Record : ${S.exam}/69</small></button></div>
 <div class="lbl">Type de questions</div><div class="chips">${MODES.map(([v,l])=>`<button class="chip ${mode===v?"on":""}" onclick="mode='${v}';render()">${l}</button>`).join("")}</div>
 <div class="lbl">Nombre de questions</div><div class="chips">${[[10,"10"],[20,"20"],[999,"Toute la sélection"]].map(([v,l])=>`<button class="chip ${nq===v?"on":""}" onclick="nq=${v};render()">${l}</button>`).join("")}</div>
 ${scopeChips()}<button class="btn" ${pool().length?"":"disabled"} onclick="startQz()">Lancer le quiz</button>`;
 if(qz.done){
-const n=qz.q.length,r=qz.sc/n,ys=uniq(qz.err.filter(x=>x.t!=="order").map(x=>x.w.y));
-const msg=r>=.9?"Niveau Ballon d'Or":r>=.7?"Solide":r>=.5?"Ça rentre":"Relis le chapitre et retente";
-return `<h2>${qz.sc}/${n}</h2><p class="lead">${msg}. Meilleure série : ${qz.best} bonnes réponses d'affilée.</p>
-${ys.length?`<h3 class="sec">À revoir</h3>${ys.sort((a,b)=>a-b).map(y=>row(W.find(w=>w.y===y))).join("")}<button class="btn" onclick="startQz([${ys}])">Rejouer mes erreurs</button>`:""}
-<button class="btn ${ys.length?"alt":""}" onclick="startQz()">Nouveau quiz</button><button class="btn alt" onclick="qz=null;render()">Changer les réglages</button>`;
+const n=qz.chrono?qz.q.filter(x=>x.a!==undefined).length:qz.q.length;
+const ys=uniq(qz.err.filter(x=>x.t!=="order").map(x=>x.w.y)).sort((a,b)=>a-b);
+const r=n?qz.sc/n:0;
+const title=qz.chrono?`${qz.sc} en 60 s`:`${qz.sc}/${n}`;
+const lead=qz.chrono?`${n-qz.sc} erreur${n-qz.sc>1?"s":""}. Record : ${S.chrono} bonnes réponses.`
+:qz.exam?`Record à l'examen : ${S.exam}/69. Meilleure série : ${qz.best}.`
+:`${r>=.9?"Niveau Ballon d'Or":r>=.7?"Solide":r>=.5?"Ça rentre":"Relis le chapitre et retente"}. Meilleure série : ${qz.best} bonnes réponses d'affilée.`;
+const again=qz.chrono?"'chrono'":qz.exam?"'exam'":"";
+return `<h2>${title}</h2><p class="lead">${lead}</p>
+${ys.length?`<h3 class="sec">À revoir</h3>${ys.map(y=>row(W.find(w=>w.y===y))).join("")}<button class="btn" onclick="startQz([${ys}])">Rejouer mes erreurs</button>`:""}
+<button class="btn ${ys.length?"alt":""}" onclick="startQz(${again})">Rejouer</button><button class="btn alt" onclick="quitQz()">Changer les réglages</button>`;
 }
-const x=qz.q[qz.i],done=x.a!==undefined,w=x.w;
+const x=qz.q[qz.i],done=x.a!==undefined,w=x.w,ys=yearsOf(w.k);
 let body="";
 if(x.o)body=x.o.map((o,i)=>`<button class="opt ${done?(o===x.ok?"ok":i===x.a?"ko":""):""}" onclick="ans(${i})">${o}</button>`).join("");
 if(x.t==="input")body=done?`<div class="opt ${x.good?"ok":"ko"}">${esc(x.a)||"(vide)"}</div>`:`<input id="in" class="txt" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nom du joueur" onkeydown="if(event.key==='Enter')sub()"><button class="btn" onclick="sub()">Valider</button><div class="hint">Le nom de famille suffit. Une faute de frappe est tolérée.</div>`;
 if(x.t==="order")body=x.items.map((it,j)=>{const k=x.pk.indexOf(j);return `<button class="opt ${done?(x.good?"ok":"ko"):""}" onclick="ord(${j})"><span class="num">${k>=0?k+1:""}</span>${it.n} <small>(${it.cl})</small>${done?`<span class="yr">${it.y}</span>`:""}</button>`}).join("")+(done?"":`<button class="link" onclick="qz.q[qz.i].pk=[];render()">Recommencer l'ordre</button>`);
 let fb="";
 if(done&&x.t==="order")fb=`<div class="fb ${x.good?"":"bad"}"><b>${x.good?"Ordre parfait.":"Pas le bon ordre."}</b> ${[...x.items].sort((a,b)=>a.y-b.y).map(it=>it.y+" "+it.n).join(", ")}</div>`;
+else if(done&&x.t==="photo")fb=`<div class="fb ${x.good?"":"bad"}"><b>${x.good?"Bien vu.":"Raté."}</b> ${w.n}, ${w.c}. ${ys.length>1?"Titres":"Titre"} : ${ys.join(", ")}.</div>`;
 else if(done)fb=`<div class="fb ${x.good?"":"bad"}"><b>${x.good?"Bien vu.":"Raté."}</b> ${w.y} : ${w.n}, ${w.cl}, ${w.c}.<br>${w.f}</div>`;
-return `<div class="qtop"><span>Question ${qz.i+1}/${qz.q.length}</span><span>Score ${qz.sc}${qz.st>=3?`, série de ${qz.st}`:""}</span></div>
-<div class="bar"><i style="width:${qz.i/qz.q.length*100}%"></i></div>
-${x.big?`<div class="yr qyear">${x.big}</div>`:""}<div class="qtext">${x.txt}</div>${body}${fb}
-${done?`<button class="btn" onclick="next()">${qz.i+1<qz.q.length?"Question suivante":"Voir le résultat"}</button>`:""}
-<div style="margin-top:18px"><button class="link" onclick="qz=null;render()">Quitter le quiz</button></div>`;
+const top=qz.chrono?`<div class="qtop"><span id="tm">${Math.ceil(Math.max(0,qz.end-Date.now())/1000)} s</span><span>Score ${qz.sc}</span></div><div class="bar"><i id="tb" style="width:${Math.max(0,qz.end-Date.now())/600}%;transition:none"></i></div>`
+:`<div class="qtop"><span>${qz.exam?"Examen ":"Question "}${qz.i+1}/${qz.q.length}</span><span>Score ${qz.sc}${qz.st>=3?`, série de ${qz.st}`:""}</span></div><div class="bar"><i style="width:${qz.i/qz.q.length*100}%"></i></div>`;
+return `${top}
+${x.big?`<div class="yr qyear">${x.big}</div>`:""}${x.img?`<div class="phw">${face(x.img,200)}</div>`:""}<div class="qtext">${x.txt}</div>${body}${fb}
+${done&&!x.good&&!qz.chrono?`<button class="btn" onclick="next()">${qz.i+1<qz.q.length?"Question suivante":"Voir le résultat"}</button>`:""}
+<div style="margin-top:18px"><button class="link" onclick="quitQz()">Quitter le quiz</button></div>`;
 }
 
 function lst(){
@@ -414,28 +591,31 @@ const r=W.filter(w=>norm(`${w.y} ${w.n} ${w.cl} ${w.c} ${w.a.join(" ")}`).includ
 return r.length?r.map(w=>row(w,true)).join(""):`<p class="lead" style="margin-top:14px">Aucun résultat pour cette recherche. Essaie un nom de famille, un club ou un pays.</p>`;
 }
 function vListe(){
-return `<h2>Palmarès</h2><p class="lead">Masque les noms pour t'auto-tester, puis touche une ligne pour la révéler.</p>
+return `<h2>Palmarès</h2><p class="lead">Touche un joueur pour ouvrir sa fiche. Avec les noms masqués, une première touche révèle la ligne.</p>
 <input class="txt" placeholder="Joueur, club, pays ou année" value="${esc(q)}" oninput="q=this.value;$('lst').innerHTML=lst()">
 <div class="chips" style="margin-top:12px"><button class="chip ${hide?"on":""}" onclick="hide=!hide;render()">Masquer les noms</button></div>
 <div id="lst">${lst()}</div>`;
 }
 
-function counts(k){const m={};W.forEach(w=>m[w[k]]=(m[w[k]]||0)+1);return Object.entries(m).sort((a,b)=>b[1]-a[1])}
 function bars(l){const mx=l[0][1];return l.map(([k,v])=>`<div class="st"><span>${k}</span><b class="yr" style="font-size:22px">${v}</b><div class="b"><i style="width:${v/mx*100}%"></i></div></div>`).join("")}
-function reset(){if(!rz){rz=true;return render()}S={box:{},games:0,best:0};rz=false;save();render()}
+function reset(){if(!rz){rz=true;return render()}S=Object.assign(clone(DEF),{img:S.img,cfg:S.cfg});rz=false;save();render()}
 function vStats(){
-const m=W.filter(w=>bx(w.y)>=3).length,seen=W.filter(w=>bx(w.y)>0).length;
-const ch=CH.map((c,i)=>[`${c.a} à ${c.b}`,chW(i).filter(w=>bx(w.y)>=3).length,chW(i).length]);
+const m=W.filter(w=>bx(w.y)>=3).length,seen=W.filter(w=>bx(w.y)>0).length,td=today(),st=streak();
 return `<h2>Stats</h2><p class="lead">Ta progression, et les records à connaître par cœur.</p>
-<div class="me"><div><span class="yr">${m}</span><span class="lbl">années maîtrisées</span></div><div><span class="yr">${seen}</span><span class="lbl">années déjà vues</span></div><div><span class="yr">${S.games}</span><span class="lbl">quiz terminés</span></div><div><span class="yr">${S.best}%</span><span class="lbl">meilleur score</span></div></div>
-<h3 class="sec">Par chapitre</h3>${ch.map(([l,a,b])=>`<div class="st"><span>${l}</span><b class="yr" style="font-size:22px">${a}/${b}</b><div class="b"><i style="width:${a/b*100}%"></i></div></div>`).join("")}
+<h3 class="sec">Objectif du jour</h3>
+<div class="st"><span>${Math.min(td,S.d.goal)}/${S.d.goal} réponses aujourd'hui</span><b class="yr" style="font-size:22px">${st} j de suite</b><div class="b"><i style="width:${Math.min(100,td/S.d.goal*100)}%"></i></div></div>
+<div class="lbl">Objectif quotidien (cartes et questions)</div><div class="chips">${[10,20,30,50].map(g=>`<button class="chip ${S.d.goal===g?"on":""}" onclick="S.d.goal=${g};save();render()">${g}</button>`).join("")}</div>
+<div class="me"><div><span class="yr">${m}</span><span class="lbl">années maîtrisées</span></div><div><span class="yr">${seen}</span><span class="lbl">années déjà vues</span></div><div><span class="yr">${S.games}</span><span class="lbl">quiz terminés</span></div><div><span class="yr">${S.best}%</span><span class="lbl">meilleur quiz</span></div><div><span class="yr">${S.chrono}</span><span class="lbl">record en 60 s</span></div><div><span class="yr">${S.exam}/69</span><span class="lbl">record à l'examen</span></div></div>
+<h3 class="sec">Par chapitre</h3>${CH.map((c,i)=>{const a=chW(i).filter(w=>bx(w.y)>=3).length,b=chW(i).length;return `<div class="st"><span>${c.a} à ${c.b}</span><b class="yr" style="font-size:22px">${a}/${b}</b><div class="b"><i style="width:${a/b*100}%"></i></div></div>`}).join("")}
 <h3 class="sec">Joueurs sacrés plusieurs fois</h3>${bars(counts("n").filter(e=>e[1]>1))}
 <h3 class="sec">Titres par nationalité</h3>${bars(counts("c"))}
 <h3 class="sec">Titres par club</h3>${bars(counts("cl"))}
 <button class="btn alt" style="margin-top:28px;${rz?"border-color:var(--miss);color:var(--miss)":""}" onclick="reset()">${rz?"Confirmer : tout effacer":"Remettre ma progression à zéro"}</button>`;
 }
 
-load();photos();
+if("serviceWorker" in navigator&&location.protocol==="https:"&&location.hostname.endsWith("github.io"))navigator.serviceWorker.register("sw.js").catch(()=>{});
+load();
+
 </script>
 </body>
 </html>
