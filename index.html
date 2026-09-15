@@ -247,7 +247,7 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
 const norm=s=>String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim();
 
 function lev(a,b){let p=[...Array(b.length+1).keys()];for(let i=1;i<=a.length;i++){let c=[i];for(let j=1;j<=b.length;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[b.length]}
-function accept(v,w){const i=norm(v);if(!i)return false;return [norm(w.n),...w.a.map(norm)].some(x=>x===i||(x.length>5&&lev(x,i)<=1))}
+function accept(v,w){const i=norm(v);if(!i)return false;const f=norm(w.n);return [f,f.split(" ").pop(),...w.a.map(norm)].some(x=>x===i||(x.length>5&&lev(x,i)<=1))}
 
 async function load(){try{const v=window.storage?(await window.storage.get("bdor-v1")).value:localStorage.getItem("bdor-v1");if(v)S=Object.assign(S,JSON.parse(v))}catch(e){}render()}
 async function save(){try{window.storage?await window.storage.set("bdor-v1",JSON.stringify(S),false):localStorage.setItem("bdor-v1",JSON.stringify(S))}catch(e){}}
